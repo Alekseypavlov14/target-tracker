@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AppState } from '../../../store/store'
-import { getDataFromLocalStorage } from '../../../utils/getDataFromLocalStorage'
+import { getDataFromLocalStorage } from './../index'
 import { TargetEntity } from './../types/target.entity'
 import { TargetActions } from './target.actions'
 
@@ -17,7 +17,7 @@ const TargetsSlice = createSlice({
   initialState,
   reducers: {
     create(state, action: PayloadAction<TargetActions.Create>) {},
-    update(state, action: PayloadAction<TargetActions.Create>) {},
+    update(state, action: PayloadAction<TargetActions.Update>) {},
     delete(state, action: PayloadAction<number>) {},
   }
 })
