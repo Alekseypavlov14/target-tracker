@@ -26,7 +26,7 @@ const TopicsSlice = createSlice({
       state.topics.push(newTopic)
       LocalStorage.save('topics', state.topics)
     },
-    delete(state, action) {
+    remove(state, action) {
       const id = action.payload
       const newTopics = state.topics.filter(topic => topic.id !== id)
 
@@ -37,4 +37,5 @@ const TopicsSlice = createSlice({
 })
 
 export const TopicsReducer = TopicsSlice.reducer
+export const { create, remove } = TopicsSlice.actions
 export const TopicsSelector = (state: AppState) => state.topics.topics

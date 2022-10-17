@@ -27,7 +27,7 @@ const TargetsSlice = createSlice({
       LocalStorage.save('targets', state.targets)
     },
     update(state, action: PayloadAction<TargetActions.Update>) {},
-    delete(state, action: PayloadAction<number>) {
+    remove(state, action: PayloadAction<number>) {
       const id: number = action.payload
 
       const newTargets = state.targets.filter(target => target.id !== id)
@@ -39,4 +39,5 @@ const TargetsSlice = createSlice({
 })
 
 export const TargetsReducer = TargetsSlice.reducer
+export const { create, update, remove } = TargetsSlice.actions
 export const TargetsSelector = (state: AppState) => state.targets.targets
