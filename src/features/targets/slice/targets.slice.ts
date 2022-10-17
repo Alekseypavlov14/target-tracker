@@ -30,9 +30,9 @@ const TargetsSlice = createSlice({
     delete(state, action: PayloadAction<number>) {
       const id: number = action.payload
 
-      const newTargetsArray = state.targets.filter(target => target.id !== id)
+      const newTargets = state.targets.filter(target => target.id !== id)
 
-      state.targets = newTargetsArray
+      state.targets = newTargets
       LocalStorage.save('targets', state.targets)
     },
   }
