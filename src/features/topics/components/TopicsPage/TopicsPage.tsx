@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
-import { Container } from './../../index'
+import { Container } from './../../../../components/Container/Container'
 import { TopicsSelector } from '../../slice/topic.slice'
 import { TopicLabel } from '../TopicLabel/TopicLabel'
 import styles from './TopicsPage.module.scss'

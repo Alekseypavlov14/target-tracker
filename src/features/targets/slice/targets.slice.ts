@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AppState } from '../../../store/store'
-import { LocalStorage } from './../index'
+import { LocalStorage } from './../../../utils/LocalStorage.util'
 import { TargetEntity } from './../types/target.entity'
 import { TargetActions } from './target.actions'
 

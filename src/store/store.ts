@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { TargetsReducer } from '../features/targets'
+import { TargetsReducer } from '../features/targets/slice/targets.slice'
 import { TopicsReducer } from '../features/topics/slice/topic.slice'
 
 export const store = configureStore({
