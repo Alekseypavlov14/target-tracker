@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AppState } from '../../../store/store'
-import { getDataFromLocalStorage } from './../index'
+import { LocalStorage } from './../index'
 import { TargetEntity } from './../types/target.entity'
 import { TargetActions } from './target.actions'
 
@@ -9,16 +9,32 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  targets: getDataFromLocalStorage('targets')
+  targets: LocalStorage.get('targets')
 }
 
 const TargetsSlice = createSlice({
   name: 'targets',
   initialState,
   reducers: {
-    create(state, action: PayloadAction<TargetActions.Create>) {},
+    create(state, action: PayloadAction<TargetActions.Create>) {
+      const newTargetData = action.payload
+
+      const targetIds: number[] = state.targets.map(target => target.id)
+      const newTargetId = Math.max(...targetIds) + 1 // to do it unique
+      const newTarget: TargetEntity = { ...newTargetData, id: newTargetId }
+
+      state.targets.push(newTarget)
+      LocalStorage.save('targets', state.targets)
+    },
     update(state, action: PayloadAction<TargetActions.Update>) {},
-    delete(state, action: PayloadAction<number>) {},
+    delete(state, action: PayloadAction<number>) {
+      const id: number = action.payload
+
+      const newTargetsArray = state.targets.filter(target => target.id !== id)
+
+      state.targets = newTargetsArray
+      LocalStorage.save('targets', state.targets)
+    },
   }
 })
 
