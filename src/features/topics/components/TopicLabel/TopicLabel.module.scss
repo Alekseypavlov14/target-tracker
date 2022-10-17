@@ -1,0 +1,14 @@
+.TopicLabel {
+  width: 100%;
+  padding: 40px 20px;
+  border-radius: 10px;
+  background: rgb(120, 240, 120);
+  user-select: none;
+  
+  .TopicName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+  }
+}

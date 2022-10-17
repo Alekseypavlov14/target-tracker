@@ -1,0 +1,14 @@
+.TopicsPage {
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.Topics {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.TopicLabelContainer:not(:last-child) {
+  margin-bottom: 10px;
+}
