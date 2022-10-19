@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { TargetsReducer } from '../features/targets/slice/targets.slice'
-import { TopicsReducer } from '../features/topics/slice/topic.slice'
+import { targetsReducer } from '../features/targets/slice/targets.slice'
+import { topicsReducer } from '../features/topics/slice/topic.slice'
 
 export const store = configureStore({
   reducer: {
-    targets: TargetsReducer,
-    topics: TopicsReducer
+    targets: targetsReducer,
+    topics: topicsReducer
   }
 })
 

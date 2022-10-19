@@ -2,14 +2,14 @@
   width: 100%;
   padding: 40px 20px;
   border-radius: 10px;
-  background: rgb(168, 255, 168);
-  border: 1px solid green; 
+  background: var(--light-green-color);
+  border: 1px solid var(--green-color); 
   user-select: none;
   
   .TopicName {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 20px;
-    color: #333;
+    color: var(--dark-text-color);
   }
 }

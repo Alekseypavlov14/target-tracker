@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Container } from './../../../../components/Container/Container'
-import { TopicsSelector } from '../../slice/topic.slice'
+import { topicsSelector } from '../../slice/topic.slice'
 import { TopicLabel } from '../TopicLabel/TopicLabel'
 import styles from './TopicsPage.module.scss'
 
 interface TopicsPageProps {}
 
 export const TopicsPage: FC<TopicsPageProps> = () => {
-  const topics = useSelector(TopicsSelector)
+  const topics = useSelector(topicsSelector)
 
   return (
     <div className={styles.TopicsPage}>
@@ -19,7 +19,10 @@ export const TopicsPage: FC<TopicsPageProps> = () => {
               key={topic.id} 
               className={styles.TopicLabelContainer}
             >
-              <TopicLabel name={topic.name} />
+              <TopicLabel
+                name={topic.name} 
+                id={topic.id} 
+              />
             </div>
           ))}
         </div>

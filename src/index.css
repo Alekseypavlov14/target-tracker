@@ -1,6 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:regular,600,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:regular,600,700);
 
+:root {
+  --green-color: rgb(38, 185, 38);
+  --light-green-color: rgb(168, 255, 168);
+  --dark-text-color: #333;
+}
+
 * {
   margin: 0;
   padding: 0;

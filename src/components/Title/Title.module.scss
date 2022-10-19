@@ -1,13 +1,13 @@
 .Title {
   font-size: 28px;
   font-weight: 700;
-  color: #333;
+  color: var(--dark-text-color);
   letter-spacing: 0.5px;
   word-spacing: 5px;
   user-select: none;
 
   span {
     font-size: inherit;
-    color: rgb(38, 185, 38);
+    color: var(--green-color);
   }
 }
