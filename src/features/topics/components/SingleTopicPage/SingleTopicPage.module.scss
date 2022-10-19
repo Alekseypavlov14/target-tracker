@@ -1,0 +1,13 @@
+.SingleTopicPage {
+  padding-top: 20px;
+
+  .TopicName {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark-text-color);
+
+    span {
+      color: var(--green-color);
+    }
+  }
+}

@@ -18,7 +18,7 @@ export const SingleTopicPage: FC<SingleTopicPageProps> = () => {
     <div className={styles.SingleTopicPage}>
       <Container>
         <div className={styles.TopicName}>
-          {topic?.name}
+          Topic: <span>{topic?.name}</span>
         </div>
 
         <AddTargetButton />
