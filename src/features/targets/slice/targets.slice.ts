@@ -12,7 +12,7 @@ const initialState: InitialState = {
   targets: LocalStorage.get('targets')
 }
 
-const TargetsSlice = createSlice({
+const targetsSlice = createSlice({
   name: 'targets',
   initialState,
   reducers: {
@@ -38,6 +38,6 @@ const TargetsSlice = createSlice({
   }
 })
 
-export const TargetsReducer = TargetsSlice.reducer
-export const { create, update, remove } = TargetsSlice.actions
-export const TargetsSelector = (state: AppState) => state.targets.targets
+export const targetsReducer = targetsSlice.reducer
+export const { create, update, remove } = targetsSlice.actions
+export const targetsSelector = (state: AppState) => state.targets.targets

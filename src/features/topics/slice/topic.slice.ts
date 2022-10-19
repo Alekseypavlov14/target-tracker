@@ -12,7 +12,7 @@ const initialState: InitialState = {
   topics: LocalStorage.get('topics')
 }
 
-const TopicsSlice = createSlice({
+const topicsSlice = createSlice({
   name: 'topics',
   initialState,
   reducers: {
@@ -20,7 +20,7 @@ const TopicsSlice = createSlice({
       const newTopicData = action.payload
 
       const topicIds = state.topics.map(topic => topic.id)
-      const newTopicId = Math.max(...topicIds) + 1 // to do it unique
+      const newTopicId = Math.max(...topicIds, 0) + 1 // to do it unique and at least 1
       const newTopic: TopicEntity = { id: newTopicId, ...newTopicData}
 
       state.topics.push(newTopic)
@@ -36,6 +36,6 @@ const TopicsSlice = createSlice({
   }
 })
 
-export const TopicsReducer = TopicsSlice.reducer
-export const { create, remove } = TopicsSlice.actions
-export const TopicsSelector = (state: AppState) => state.topics.topics
+export const topicsReducer = topicsSlice.reducer
+export const { create, remove } = topicsSlice.actions
+export const topicsSelector = (state: AppState) => state.topics.topics
