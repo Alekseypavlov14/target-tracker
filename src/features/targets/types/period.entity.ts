@@ -1,7 +1,7 @@
 export enum PeriodLength {
-  Week = 'WEEK',
-  Month = 'MONTH',
-  Year = 'YEAR'
+  Week = 'Week',
+  Month = 'Month',
+  Year = 'Year'
 }
 
 export interface PeriodEntity {
