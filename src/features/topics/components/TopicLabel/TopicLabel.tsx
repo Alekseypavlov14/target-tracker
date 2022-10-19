@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { TopicEntity } from '../../types/Topic.entity'
 import styles from './TopicLabel.module.scss'
 
-interface TopicLabelProps extends TopicEntity {}
+interface TopicLabelProps extends Pick<TopicEntity, 'id' | 'name'> {}
 
 export const TopicLabel: FC<TopicLabelProps> = ({ name, id }) => {
   const navigate = useNavigate()
