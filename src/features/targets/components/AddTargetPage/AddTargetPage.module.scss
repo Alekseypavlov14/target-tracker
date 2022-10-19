@@ -1,0 +1,14 @@
+.AddTargetPage {
+  padding-top: 20px;
+
+  .Title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark-text-color);
+    text-align: center;
+  }
+
+  span {
+    color: var(--green-color);
+  }
+}
