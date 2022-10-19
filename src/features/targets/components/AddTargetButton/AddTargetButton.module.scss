@@ -1,0 +1,17 @@
+.AddTargetButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--green-color);
+  border: 1px solid darkgreen;
+  position: absolute;
+  z-index: 5;
+  bottom: 80px;
+  right: 40px;
+  box-shadow: 0px 0px 10px 3px #ccc;
+  line-height: 54px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 38px;
+  text-align: center;
+}
