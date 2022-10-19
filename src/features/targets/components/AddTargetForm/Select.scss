@@ -1,0 +1,12 @@
+.Select {
+  border: 1px solid #333 !important;
+
+  &__control {
+    border: 1px solid #333 !important;
+
+    &--is-focused {
+      box-shadow: none !important;
+      border: 2px solid var(--green-color) !important;
+    }
+  }
+}

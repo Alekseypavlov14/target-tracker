@@ -1,0 +1,36 @@
+.AddTargetForm {
+  padding: 20px 0px;
+}
+
+.InputSection:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.InputLabel {
+  display: block;
+  font-size: 20px;
+  color: var(--dark-text-color);
+  margin-bottom: 5px;
+}
+
+.Input {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--dark-text-color);
+  outline: none;
+  resize: none;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 2px solid var(--green-color);
+    outline: none;
+  }
+}
+
+.ButtonSection {
+  margin-top: 30px;
+  text-align: center;
+}
