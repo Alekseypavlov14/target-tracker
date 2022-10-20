@@ -56,6 +56,15 @@ export const TargetList: FC<TargetListProps> = ({ targets }) => {
           ))}
         </div>
       )}
+
+      {weekTargets.length === 0 &&
+      monthTargets.length === 0 &&
+      yearTargets.length === 0 && (
+        <div className={styles.EmptyPlaceholder}>
+          It seems you didn't take on <br /> 
+          any challenges. Do it! 
+        </div>
+      )}
     </div>
   )
 }
