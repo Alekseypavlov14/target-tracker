@@ -1,15 +1,26 @@
 .TargetLabel {
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: 18px;
-  padding: 5px 10px 5px 8px;
+  padding: 5px 5px 5px 10px;
   box-sizing: border-box;
-  border: 1px solid var(--green-color);
-  border-left: 10px solid var(--green-color);
+  border: 1px solid var(--dark-text-color);
+  border-left: 10px solid var(--dark-text-color);
   border-radius: 5px;
 }
 
 .TargetName {
   flex: 1 0 auto;
+}
+
+.Done {
+  border: 1px solid var(--green-color);
+  border-left: 10px solid var(--green-color);
+}
+
+.NotDone {
+  border: 1px solid var(--red-color);
+  border-left: 10px solid var(--red-color);
 }

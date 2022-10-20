@@ -1,8 +1,17 @@
-.BigToggleTargetButton,
 .ToggleTargetButton {
-  color: rgb(230, 207, 0);
+  font-size: 26px;
+  line-height: 1;
 }
 
-.BigToggleTargetButton > svg {
-  font-size: 32px;
+.BigToggleTargetButton {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.Done {
+  color: var(--green-color);
+}
+
+.NotDone {
+  color: var(--red-color);
 }

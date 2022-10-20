@@ -3,6 +3,7 @@ import { TargetEntity } from '../../types/target.entity'
 import { useNavigate } from 'react-router'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import styles from './TargetLabel.module.scss'
+import cn from 'classnames'
 
 interface TargetLabelProps extends Pick<TargetEntity, 'name' | 'done' | 'id'> {}
 
@@ -13,8 +14,12 @@ export const TargetLabel: FC<TargetLabelProps> = ({ name, done, id }) => {
     return () => navigate(`/target/${id}`)
   }
 
+  const doneClassName = done 
+    ? styles.Done
+    : styles.NotDone
+
   return (
-    <div className={styles.TargetLabel}>
+    <div className={cn(styles.TargetLabel, doneClassName)}>
       <div 
         className={styles.TargetName}
         onClick={openDetailsPage(id)}
