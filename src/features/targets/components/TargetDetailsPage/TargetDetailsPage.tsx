@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
 import { useRedirect } from '../../../../hooks/useRedirect'
 import { targetsSelector } from '../../slice/targets.slice'
+import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import styles from './TargetDetailsPage.module.scss'
 
 interface TargetDetailsPageProps {}
@@ -23,6 +24,7 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
             Target Details Page
           </div>
           <div className={styles.TargetToggleButton}>
+            <ToggleTargetButton id={id} done={Boolean(target?.done)} big />
           </div>
         </div>
 

@@ -1,3 +1,8 @@
+.BigToggleTargetButton,
 .ToggleTargetButton {
   color: rgb(230, 207, 0);
+}
+
+.BigToggleTargetButton > svg {
+  font-size: 32px;
 }

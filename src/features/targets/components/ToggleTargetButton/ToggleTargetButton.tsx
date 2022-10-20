@@ -7,9 +7,11 @@ import { toggleTargetDone } from '../../slice/targets.slice'
 import { useDispatch } from 'react-redux'
 import styles from './ToggleTargetButton.module.scss'
 
-interface ToggleTargetButtonProps extends Pick<TargetEntity, 'id' | 'done'> {}
+interface ToggleTargetButtonProps extends Pick<TargetEntity, 'id' | 'done'> {
+  big?: boolean
+}
 
-export const ToggleTargetButton: FC<ToggleTargetButtonProps> = ({ id, done }) => {
+export const ToggleTargetButton: FC<ToggleTargetButtonProps> = ({ id, done, big }) => {
   const dispatch = useDispatch()
 
   const icon = done ? FilledStar : StrokedStar
@@ -18,9 +20,13 @@ export const ToggleTargetButton: FC<ToggleTargetButtonProps> = ({ id, done }) =>
     dispatch(toggleTargetDone(id))
   }
 
+  const className = big 
+    ? styles.BigToggleTargetButton 
+    : styles.ToggleTargetButton
+
   return (
     <div 
-      className={styles.ToggleTargetButton}
+      className={className}
       onClick={toggleDoneHandler}
     >
       <FontAwesomeIcon icon={icon} />
