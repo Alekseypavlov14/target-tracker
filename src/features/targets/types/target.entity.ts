@@ -5,5 +5,6 @@ export interface TargetEntity {
   name: string
   description: string
   period: PeriodEntity
+  done: boolean
   topicId: number
 }

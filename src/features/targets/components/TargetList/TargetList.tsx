@@ -22,8 +22,15 @@ export const TargetList: FC<TargetListProps> = ({ targets }) => {
           </div>
 
           {weekTargets.map(target => (
-            <div className={styles.TargetLabel}>
-              <TargetLabel name={target.name} />
+            <div 
+              className={styles.TargetLabel}
+              key={target.id}
+            >
+              <TargetLabel 
+                id={target.id}
+                name={target.name} 
+                done={target.done}
+              />
             </div>
           ))}
         </div>
@@ -36,8 +43,15 @@ export const TargetList: FC<TargetListProps> = ({ targets }) => {
           </div>
 
           {monthTargets.map(target => (
-            <div className={styles.TargetLabel}>
-              <TargetLabel name={target.name} />
+            <div 
+              className={styles.TargetLabel}
+              key={target.id}
+            >
+              <TargetLabel 
+                id={target.id}
+                name={target.name} 
+                done={target.done}
+              />
             </div>
           ))}
         </div>
@@ -50,8 +64,15 @@ export const TargetList: FC<TargetListProps> = ({ targets }) => {
           </div>
 
           {yearTargets.map(target => (
-            <div className={styles.TargetLabel}>
-              <TargetLabel name={target.name} />
+            <div 
+              className={styles.TargetLabel}
+              key={target.id}
+            >
+              <TargetLabel 
+                id={target.id}
+                name={target.name} 
+                done={target.done}
+              />
             </div>
           ))}
         </div>

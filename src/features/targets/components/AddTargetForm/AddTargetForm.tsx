@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import { TargetActions } from '../../slice/target.actions'
 import { useDispatch } from 'react-redux'
 import { create } from '../../slice/targets.slice'
+import { useNavigate } from 'react-router-dom'
 import Select from 'react-select'
 import styles from './AddTargetForm.module.scss'
 import './Select.scss'
@@ -20,6 +21,7 @@ interface AddTargetFormProps {}
 export const AddTargetForm: FC<AddTargetFormProps> = () => {
   const id = Number(useParams().id)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -56,18 +58,30 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
     if (!name) return
     if (!description) return 
 
+    const startDate = Date.now()
+    const endDate = Date.now() + getTimeInMilliseconds(period.value)
+
     const newTarget: TargetActions.Create = {
       name: name,
       description: description,
       period: {
-        start: Date.now(),
-        end: Date.now() + getTimeInMilliseconds(period.value),
+        start: startDate,
+        end: endDate,
         length: period.value as PeriodLength
       },
+      done: false,
       topicId: id
     }
 
     dispatch(create(newTarget))
+    clearAllInputFields()
+    navigate(-1) // go back in history
+  }
+
+  function clearAllInputFields() {
+    setName('')
+    setDescription('')
+    setPeriod(options[0])
   }
 
   return (
@@ -81,6 +95,7 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
         </label>
         <input
           className={styles.Input} 
+          autoComplete='off'
           onChange={inputNameHandler}
           value={name}
           id='name'
@@ -96,6 +111,7 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
         </label>
         <textarea
           className={styles.Input} 
+          autoComplete='off'
           onChange={inputDescriptionHandler}
           value={description}
           id='description'
@@ -112,6 +128,7 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
           onChange={selectHandler}
           options={options}
           classNamePrefix='Select'
+          isSearchable={false}
         />
       </div>
 
