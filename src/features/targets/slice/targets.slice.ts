@@ -20,7 +20,7 @@ const targetsSlice = createSlice({
       const newTargetData = action.payload
 
       const targetIds: number[] = state.targets.map(target => target.id)
-      const newTargetId = Math.max(...targetIds) + 1 // to do it unique
+      const newTargetId = Math.max(...targetIds, 0) + 1 // to do it unique
       const newTarget: TargetEntity = { ...newTargetData, id: newTargetId }
 
       state.targets.push(newTarget)

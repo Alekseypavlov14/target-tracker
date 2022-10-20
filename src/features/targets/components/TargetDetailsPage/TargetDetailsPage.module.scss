@@ -1,0 +1,25 @@
+.TargetDetailsPage {
+  padding: 20px 0px;
+}
+
+.TargetPageTitle {
+  font-size: 28px;
+  color: var(--dark-text-color);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.TargetProperty:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.TargetPropertyContent {
+  font-size: 18px;
+  color: #666;
+}
+
+.TargetPropertyName {
+  font-size: 22px;
+  color: var(--dark-text-color);
+  display: flex;
+}

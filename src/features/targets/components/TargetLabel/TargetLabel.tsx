@@ -1,37 +1,28 @@
-import { FC, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as StrokedStar } from '@fortawesome/free-regular-svg-icons'
-import { faStar as FilledStar } from '@fortawesome/free-solid-svg-icons'
+import { FC } from 'react'
 import { TargetEntity } from '../../types/target.entity'
-import { useDispatch } from 'react-redux'
-import { toggleTargetDone } from '../../slice/targets.slice'
+import { useNavigate } from 'react-router'
+import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import styles from './TargetLabel.module.scss'
 
 interface TargetLabelProps extends Pick<TargetEntity, 'name' | 'done' | 'id'> {}
 
 export const TargetLabel: FC<TargetLabelProps> = ({ name, done, id }) => {
-  const [isDone, setDone] = useState<boolean>(done)
-  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const icon = isDone ? FilledStar : StrokedStar
-
-  const toggleDoneHandler = () => {
-    setDone(value => !value)
-    dispatch(toggleTargetDone(id))
+  const openDetailsPage = (id: number) => {
+    return () => navigate(`/target/${id}`)
   }
 
   return (
     <div className={styles.TargetLabel}>
-      <div className={styles.TargetName}>
+      <div 
+        className={styles.TargetName}
+        onClick={openDetailsPage(id)}
+      >
         {name}
       </div>
 
-      <div 
-        className={styles.DoneButton}
-        onClick={toggleDoneHandler}
-      >
-        <FontAwesomeIcon icon={icon} />
-      </div>
+      <ToggleTargetButton id={id} done={done} />
     </div>
   )
 }

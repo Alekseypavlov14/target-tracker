@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 18px;
   padding: 5px 10px 5px 8px;
   box-sizing: border-box;
   border: 1px solid var(--green-color);
@@ -10,6 +10,6 @@
   border-radius: 5px;
 }
 
-.DoneButton {
-  color: rgb(230, 207, 0);
+.TargetName {
+  flex: 1 0 auto;
 }

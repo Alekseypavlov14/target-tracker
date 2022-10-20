@@ -75,7 +75,7 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
 
     dispatch(create(newTarget))
     clearAllInputFields()
-    navigate(-1) // go back in history
+    navigate(`/topic/${id}`)
   }
 
   function clearAllInputFields() {
