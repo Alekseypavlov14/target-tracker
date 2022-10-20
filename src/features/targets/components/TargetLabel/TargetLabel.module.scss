@@ -1,5 +1,9 @@
 .TargetLabel {
   width: 100%;
-  padding: 5px 10px;
+  font-size: 16px;
+  padding: 5px 10px 5px 8px;
   box-sizing: border-box;
+  border: 1px solid var(--green-color);
+  border-left: 10px solid var(--green-color);
+  border-radius: 5px;
 }

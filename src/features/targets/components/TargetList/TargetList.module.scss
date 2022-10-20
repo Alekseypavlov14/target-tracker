@@ -1,0 +1,15 @@
+.TargetList {
+  padding: 20px 0px;
+}
+
+.PeriodSection:not(:last-child) {
+  margin-bottom: 20px;
+}
+.PeriodSectionTitle {
+  font-size: 18px;
+  color: var(--dark-text-color);
+  margin-bottom: 10px;
+}
+.TargetLabel {
+  margin-bottom: 5px;
+}

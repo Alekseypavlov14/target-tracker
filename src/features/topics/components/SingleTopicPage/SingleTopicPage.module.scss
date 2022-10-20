@@ -10,4 +10,12 @@
       color: var(--green-color);
     }
   }
+
+  .TargetsContainer {
+    padding: 20px 0px;
+  }
+
+  .Target:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }

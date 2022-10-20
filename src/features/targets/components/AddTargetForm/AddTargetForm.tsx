@@ -1,23 +1,75 @@
-import { FC } from 'react'
+import { FC, useState, ChangeEvent } from 'react'
 import { PeriodLength } from '../../types/period.entity'
+import { Button } from '../../../../components/Button/Button'
+import { getTimeInMilliseconds } from '../../utils/getTimeInMilliseconds'
+import { useParams } from 'react-router'
+import { TargetActions } from '../../slice/target.actions'
+import { useDispatch } from 'react-redux'
+import { create } from '../../slice/targets.slice'
 import Select from 'react-select'
 import styles from './AddTargetForm.module.scss'
 import './Select.scss'
-import { Button } from '../../../../components/Button/Button'
+
+interface Option {
+  value: string
+  label: string
+}
 
 interface AddTargetFormProps {}
 
 export const AddTargetForm: FC<AddTargetFormProps> = () => {
-  const generateOptions = (values: PeriodLength[]) => {
-    return values.map(value => ({
-      value: value,
-      label: value
-    }))
-  }
+  const id = Number(useParams().id)
+  const dispatch = useDispatch()
+
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
 
   const periodLengthValues = Object.values(PeriodLength)
   const options = generateOptions(periodLengthValues)
-  
+  const [period, setPeriod] = useState<Option>(options[0])
+
+  function generateOptions (values: PeriodLength[]) {
+    return values.map(value => convertToOption(value))
+  }
+
+  function convertToOption (value: string) {
+    return ({
+      value: value,
+      label: value
+    })
+  }
+
+  const inputNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value)
+  }
+
+  const inputDescriptionHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setDescription(e.target.value)
+  }
+
+  const selectHandler = (value: Option | null) => {
+    if (!value) return
+    setPeriod(value)
+  }
+
+  const createTargetHandler = () => {
+    if (!name) return
+    if (!description) return 
+
+    const newTarget: TargetActions.Create = {
+      name: name,
+      description: description,
+      period: {
+        start: Date.now(),
+        end: Date.now() + getTimeInMilliseconds(period.value),
+        length: period.value as PeriodLength
+      },
+      topicId: id
+    }
+
+    dispatch(create(newTarget))
+  }
+
   return (
     <div className={styles.AddTargetForm}>
       <div className={styles.InputSection}>
@@ -29,6 +81,8 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
         </label>
         <input
           className={styles.Input} 
+          onChange={inputNameHandler}
+          value={name}
           id='name'
         />
       </div>
@@ -42,6 +96,8 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
         </label>
         <textarea
           className={styles.Input} 
+          onChange={inputDescriptionHandler}
+          value={description}
           id='description'
         />
       </div>
@@ -52,14 +108,15 @@ export const AddTargetForm: FC<AddTargetFormProps> = () => {
         </div>
 
         <Select 
+          value={period}
+          onChange={selectHandler}
           options={options}
-          defaultValue={options[0]}
           classNamePrefix='Select'
         />
       </div>
 
       <div className={styles.ButtonSection}>
-        <Button onClick={() => {}}>
+        <Button onClick={createTargetHandler}>
           Create
         </Button>
       </div>
