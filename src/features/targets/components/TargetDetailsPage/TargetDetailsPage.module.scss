@@ -18,13 +18,24 @@
   margin-bottom: 10px;
 }
 
+.TargetPropertyName {
+  font-size: 22px;
+  color: var(--dark-text-color);
+  display: flex;
+}
+
 .TargetPropertyContent {
   font-size: 18px;
   color: #666;
 }
 
-.TargetPropertyName {
-  font-size: 22px;
-  color: var(--dark-text-color);
-  display: flex;
+.DangerousSection {
+  border-radius: 5px;
+  padding: 20px 0px;
+}
+
+.DangerousSectionTitle {
+  font-size: 24px;
+  color: var(--red-color);
+  margin-bottom: 10px;
 }

@@ -1,11 +1,12 @@
 import { FC } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
 import { useRedirect } from '../../../../hooks/useRedirect'
-import { targetsSelector } from '../../slice/targets.slice'
+import { remove, targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
+import { Button } from '../../../../components/Button/Button'
 import styles from './TargetDetailsPage.module.scss'
 
 interface TargetDetailsPageProps {}
@@ -13,6 +14,14 @@ interface TargetDetailsPageProps {}
 export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const id = Number(useParams().id)
   useRedirect(id, `/topic/${id}`)
+
+  const dispatch = useDispatch()
+
+  function deleteTargetHandler() {
+    const confirmation = window.confirm('Are you sure?')
+    if (!confirmation) return
+    dispatch(remove(id))
+  }
 
   const targets = useSelector(targetsSelector)
   const target = targets.find(target => target.id === id)
@@ -57,6 +66,19 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
           <div className={styles.TargetPropertyContent}>
             <Date time={startTime} /> - <Date time={endTime} />
           </div>
+        </div>
+
+        <div className={styles.DangerousSection}>
+          <div className={styles.DangerousSectionTitle}>
+            Dangerous Zone:
+          </div>
+
+          <Button 
+            onClick={deleteTargetHandler}
+            dangerous
+          >
+            Delete
+          </Button>
         </div>
       </Container>
     </div>
