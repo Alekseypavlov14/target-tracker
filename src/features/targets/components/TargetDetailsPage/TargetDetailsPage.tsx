@@ -5,7 +5,7 @@ import { Container } from '../../../../components/Container/Container'
 import { useRedirect } from '../../../../hooks/useRedirect'
 import { targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
-import { formatDate } from '../../utils/formatDate'
+import { Date } from '../../../../components/Date/Date'
 import styles from './TargetDetailsPage.module.scss'
 
 interface TargetDetailsPageProps {}
@@ -17,11 +17,8 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const targets = useSelector(targetsSelector)
   const target = targets.find(target => target.id === id)
 
-  const startData = formatDate(target?.period.start || Date.now())
-  const endData = formatDate(target?.period.end || Date.now())
-
-  const startDateView = `${startData.day}.${startData.month}.${startData.year}`
-  const endDateView = `${endData.day}.${endData.month}.${endData.year}`
+  const startTime = target?.period.start || window.Date.now()
+  const endTime = target?.period.end || window.Date.now()
 
   return (
     <div className={styles.TargetDetailsPage}>
@@ -58,7 +55,7 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
             Period:
           </div> 
           <div className={styles.TargetPropertyContent}>
-            {startDateView} - {endDateView}
+            <Date time={startTime} /> - <Date time={endTime} />
           </div>
         </div>
       </Container>
