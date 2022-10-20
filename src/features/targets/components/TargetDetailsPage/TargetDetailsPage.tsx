@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
 import { useRedirect } from '../../../../hooks/useRedirect'
 import { remove, targetsSelector } from '../../slice/targets.slice'
@@ -14,13 +14,16 @@ interface TargetDetailsPageProps {}
 export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const id = Number(useParams().id)
   useRedirect(id, `/topic/${id}`)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
   function deleteTargetHandler() {
     const confirmation = window.confirm('Are you sure?')
     if (!confirmation) return
+
     dispatch(remove(id))
+    navigate(`/topic/${id}`, { replace: true })
   }
 
   const targets = useSelector(targetsSelector)
