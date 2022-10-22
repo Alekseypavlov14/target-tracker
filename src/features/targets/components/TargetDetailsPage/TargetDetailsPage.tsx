@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
@@ -8,10 +8,16 @@ import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
 import { Button } from '../../../../components/Button/Button'
 import styles from './TargetDetailsPage.module.scss'
+import { Confirm } from '../../../modals/components/Confirm/Confirm'
 
 interface TargetDetailsPageProps {}
 
 export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
+  const [isModalOpened, setModalOpened] = useState(false)
+
+  const openModal = () => setModalOpened(true)
+  const closeModal = () => setModalOpened(false)
+
   const id = Number(useParams().id)
   useRedirect(id, `/topic/${id}`)
   const navigate = useNavigate()
@@ -19,9 +25,6 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const dispatch = useDispatch()
 
   function deleteTargetHandler() {
-    const confirmation = window.confirm('Are you sure?')
-    if (!confirmation) return
-
     dispatch(remove(id))
     navigate(`/topic/${id}`, { replace: true })
   }
@@ -77,13 +80,22 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
           </div>
 
           <Button 
-            onClick={deleteTargetHandler}
+            onClick={openModal}
             dangerous
           >
             Delete
           </Button>
         </div>
       </Container>
+
+      {isModalOpened && (
+        <Confirm
+          onConfirm={deleteTargetHandler}
+          close={closeModal}
+        >
+          Are you sure?
+        </Confirm>
+      )}
     </div>
   )
 }
