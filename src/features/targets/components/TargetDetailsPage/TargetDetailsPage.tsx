@@ -7,8 +7,8 @@ import { remove, targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
 import { Button } from '../../../../components/Button/Button'
+import { Confirm } from 'standard-ui'
 import styles from './TargetDetailsPage.module.scss'
-import { Confirm } from '../../../modals/components/Confirm/Confirm'
 
 interface TargetDetailsPageProps {}
 
