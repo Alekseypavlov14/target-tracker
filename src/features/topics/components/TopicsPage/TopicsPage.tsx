@@ -15,7 +15,7 @@ export const TopicsPage: FC<TopicsPageProps> = () => {
     <div className={styles.TopicsPage}>
       <Container>
         <div className={styles.Topics}>
-          {topics.map(topic => (
+          {topics ? topics.map(topic => (
             <div 
               key={topic.id} 
               className={styles.TopicLabelContainer}
@@ -25,7 +25,7 @@ export const TopicsPage: FC<TopicsPageProps> = () => {
                 id={topic.id} 
               />
             </div>
-          ))}
+          )) : null}
         </div>
 
         <AddTopicButton />
