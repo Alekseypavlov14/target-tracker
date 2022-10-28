@@ -1,0 +1,29 @@
+.AddTopicPage {
+  padding-top: 20px;
+}
+
+.Title {
+  font-size: 28px;
+  color: var(--dark-text-color);
+  font-weight: 600;
+
+  span {
+    color: var(--green-color);
+  }
+}
+
+.Form {
+  padding: 20px 0px;
+
+  .InputLabel {
+    font-size: 24px;
+    display: block;
+  }
+
+  .Input {
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+  }
+}

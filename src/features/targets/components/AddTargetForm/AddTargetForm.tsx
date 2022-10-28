@@ -1,6 +1,6 @@
 import { FC, useState, ChangeEvent } from 'react'
 import { PeriodLength } from '../../types/period.entity'
-import { Button } from '../../../../components/Button/Button'
+import { Button } from 'standard-ui'
 import { getTimeInMilliseconds } from '../../utils/getTimeInMilliseconds'
 import { useParams } from 'react-router'
 import { TargetActions } from '../../slice/target.actions'

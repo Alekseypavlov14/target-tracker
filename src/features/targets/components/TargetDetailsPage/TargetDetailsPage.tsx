@@ -6,8 +6,7 @@ import { useRedirect } from '../../../../hooks/useRedirect'
 import { remove, targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
-import { Button } from '../../../../components/Button/Button'
-import { Confirm } from 'standard-ui'
+import { Button, Confirm } from 'standard-ui'
 import styles from './TargetDetailsPage.module.scss'
 
 interface TargetDetailsPageProps {}

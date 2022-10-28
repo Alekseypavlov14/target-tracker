@@ -4,6 +4,7 @@ import { Container } from './../../../../components/Container/Container'
 import { topicsSelector } from '../../slice/topic.slice'
 import { TopicLabel } from '../TopicLabel/TopicLabel'
 import styles from './TopicsPage.module.scss'
+import { AddTopicButton } from '../AddTopicButton/AddTopicButton'
 
 interface TopicsPageProps {}
 
@@ -26,6 +27,8 @@ export const TopicsPage: FC<TopicsPageProps> = () => {
             </div>
           ))}
         </div>
+
+        <AddTopicButton />
       </Container>
     </div>
   )
