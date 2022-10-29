@@ -1,6 +1,6 @@
 {
-  "short_name": "Application",
-  "name": "Application",
+  "short_name": "Target Tracker",
+  "name": "Allows you to take challenges on",
   "icons": [
     {
       "src": "target-icon.png",
