@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
-import { useRedirect } from '../../../../hooks/useRedirect'
 import { remove, targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
@@ -18,7 +17,6 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const closeModal = () => setModalOpened(false)
 
   const id = Number(useParams().id)
-  useRedirect(id, `/topic/${id}`)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
