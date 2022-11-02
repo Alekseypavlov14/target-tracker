@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { topicsSelector } from '../features/topics/slice/topic.slice'
+import { topicsSelector } from '../slice/topic.slice'
 
 export function useRedirect(id: number, redirectPath: string = '/') {
   const navigate = useNavigate()

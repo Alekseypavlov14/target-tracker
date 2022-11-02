@@ -6,6 +6,7 @@ import { remove, targetsSelector } from '../../slice/targets.slice'
 import { ToggleTargetButton } from '../ToggleTargetButton/ToggleTargetButton'
 import { Date } from '../../../../components/Date/Date'
 import { Button, Confirm } from 'standard-ui'
+import { useRedirect } from '../../hooks/useRedirect'
 import styles from './TargetDetailsPage.module.scss'
 
 interface TargetDetailsPageProps {}
@@ -17,8 +18,9 @@ export const TargetDetailsPage: FC<TargetDetailsPageProps> = () => {
   const closeModal = () => setModalOpened(false)
 
   const id = Number(useParams().id)
-  const navigate = useNavigate()
+  useRedirect(id)
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   function deleteTargetHandler() {

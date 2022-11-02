@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useParams } from 'react-router'
 import { Container } from '../../../../components/Container/Container'
-import { useRedirect } from '../../../../hooks/useRedirect'
+import { useRedirect } from '../../../topics/hooks/useRedirect'
 import { AddTargetForm } from '../AddTargetForm/AddTargetForm'
 import styles from './AddTargetPage.module.scss'
 
