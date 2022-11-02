@@ -14,6 +14,9 @@
 .TargetName {
   flex: 1 0 auto;
   cursor: pointer;
+  word-break: break-all;
+  max-width: calc(100% - 50px); 
+  /* 50px to make space between text and other elements */
 }
 
 .Done {

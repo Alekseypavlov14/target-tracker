@@ -23,7 +23,7 @@ const targetsSlice = createSlice({
       const newTargetId = Math.max(...targetIds, 0) + 1 // to do it unique
       const newTarget: TargetEntity = { ...newTargetData, id: newTargetId }
 
-      state.targets.push(newTarget)
+      state.targets.unshift(newTarget)
       LocalStorage.save('targets', state.targets)
     },
     toggleTargetDone(state, action: PayloadAction<number>) {
